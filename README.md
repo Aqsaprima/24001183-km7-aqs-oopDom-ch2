@@ -1,39 +1,26 @@
-# Binar: Challenge 04
+## Table of contents
 
-- Mulai modifikasi file `server/index.js` apabila ingin membuat HTTP server.
-- Mulai modifikasi folder `public` apabila ingin memodifikasi HTML.
+- [Deskripsi](#deskripsi)
+- [Algoritma](#algoritma)
+- [Flowchart](#flowchart)
 
-# `Binar` class
+## Deskripsi
 
-Class ini berisi 1 static method saja, yang berfungsi untuk mengambil data mobil dari internet.
+Pada project ini dibuat sebuah halaman dengan nama cars.html yang bertujuan untuk melakukan filter kepada data yang mobil-mobil yang ada sesuai dengan input dari user.
 
-```typescript
-interface Car {
-  id: string;
-  plate: string;
-  manufacture: string;
-  model: string;
-  image: string;
-  rentPerDay: number;
-  capacity: number;
-  description: string;
-  transmission: string;
-  available: boolean;
-  type: string;
-  year: string;
-  options: Array<string>;
-  specs: Array<string>;
-}
+## Algoritma
 
-interface Binar {
-  listCars(filterer: (car: Car) => boolean): Array<Car>
-}
-```
+Berikut adalah algoritma atau langkah penyelesaian yang digunakan:
 
-Method `listCars` ini akan menerima fungsi yang mana harus mengembalikan `boolean` sebagai nilainya. 
-Fungsi ini akan dijalankan untuk masing-masing item di dalam list of cars, yang mana jika nilainya `true`,
-maka akan ditampilkan di dalam list tersebut.
+1. Ketika tombol mulai sewa mobil pada halaman index.html diklik akan berpindah ke halaman cars.html
+2. Pada halaman cars.html terdapat input field untuk user memasukkan data sesuai keinginannya
+3. Ketika user klik tombol cari mobil sistem akan melakukan filter pada data cars 
+4. Sistem akan menampilkan cars yang sesuai dengan inputan user 
 
-# Tips
+## Flowchart
 
-Just, hack it bro!
+Berikut adalah flowchart atau bagan alur yang digunakan:
+
+<p align="center">
+  <img src="./public/images/flowchart.png">
+</p>
