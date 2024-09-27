@@ -48,7 +48,7 @@
                     <!-- <div class="col-lg-1 col-xxl-1 col-md-1">
                     </div> -->
                     <div class="col-lg-5  mx-lg-5 col-xl-5 col-xxl-5 mx-md-0 " style="padding-top: 100px;">
-                        <h2 class="fw-bold" style="padding-right: 10px;">Sewa & Rental Mobil Terbaik di kawasan Depok</h2>
+                        <h2 class="fw-bold" style="padding-right: 10px;">Sewa & Rental Mobil Terbaik di kawasan Surabaya</h2>
                         <p style="padding-right: 40px;">Selamat datang di Binar Car Rental. Kami menyediakan mobil kualitas terbaik dengan harga terjangkau. Selalu siap melayani kebutuhanmu untuk sewa mobil selama 24 jam. </p><button class="btn btn-utama">Mulai Sewa Mobil</button>
                     </div>
                     <div class="col-lg-5 col-xl-6 col-xxl-6 mt-lg-3" style="padding-top: 50px; "><img class="" width="100%" src="images/img_car.png" alt=""></div>
@@ -72,7 +72,7 @@
                             </select>
                         </div>
                         <div class="col-lg-auto col-xl-auto col-md-auto">
-                            <label>Tanggal</label>
+                            <label>Waktu Jemput/Ambil</label>
                             <input type="date" class="form-control" placeholder="Pilih Tanggal" id="tanggal">
                         </div>
                         <div class="col-lg-auto col-xl-auto col-md-auto search__time">
@@ -96,8 +96,8 @@
                                 </span>
                             </div>
                         </div>
-                        <div class="col-lg-2 col-xl-auto col-md-2  pt-4">
-                            <button class="btn btn-utama" id="load-btn">Cari Mobil</button>
+                        <div class="col-lg-2 col-xl-auto col-md-2 pt-4">
+                            <button class="btn btn-utama" id="load-btn" disabled>Cari Mobil</button>
                         </div>
                     </div>
                 </div>
@@ -184,6 +184,38 @@
         </div>
     </footer>
     <!-- Script -->
+    <script>
+        // Debounce function to delay the checking of input field
+        function debounce(func, delay) {
+            let timeout;
+            return function() {
+                clearTimeout(timeout);
+                timeout = setTimeout(func, delay);
+            };
+        }
+
+        // Function to check if all inputs are filled
+        function allFilled() {
+            let filled = true;
+            document.querySelectorAll('#tipeDriver, #tanggal, #waktuJemput').forEach(function(input) {
+                if (input.value === '' || input.value === "false" || input.value === "default") {
+                    filled = false;
+                }
+            });
+            if (filled) {
+                document.getElementById('load-btn').removeAttribute('disabled');
+            } else {
+                document.getElementById('load-btn').setAttribute('disabled', 'disabled');
+            }
+        }
+
+        // Add event listeners
+        document.querySelectorAll('#tipeDriver, #tanggal, #waktuJemput').forEach(function(input) {
+            if (input.tagName === 'SELECT' || input.type === 'date') {
+                input.addEventListener('change', debounce(allFilled, 1000));
+            }
+        });
+    </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="scripts/nice-select2/dist/js/nice-select2.js"></script>
     <!-- Bootstrap -->

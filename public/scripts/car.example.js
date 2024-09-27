@@ -5,23 +5,7 @@ class Car {
         this.list = cars.map((i) => new this(i));
     }
 
-    constructor({
-        id,
-        plate,
-        manufacture,
-        model,
-        image,
-        rentPerDay,
-        capacity,
-        description,
-        transmission,
-        available,
-        type,
-        year,
-        options,
-        specs,
-        availableAt,
-    }) {
+    constructor({id, plate, manufacture, model, image, rentPerDay, capacity, description, transmission, available, type, year, options, specs, availableAt}) {
         this.id = id;
         this.plate = plate;
         this.manufacture = manufacture;
@@ -43,7 +27,7 @@ class Car {
         return `
 
         <div class="card px-2 py-4">
-            <img src="${this.image}" class="card-img-top mt-4">
+            <img src="${this.image}" class="card-img-top">
             <div class="card-body">
                 <h5 class="card-title fs-6">${this.manufacture}/${this.model}</h5>
                 <h5 class="card-title fs-5 fw-bold">Rp ${this.rentPerDay} / hari</h5>
